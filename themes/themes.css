@@ -2,6 +2,7 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
 html, body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     font-family: 'Roboto', sans-serif;
@@ -14,6 +15,7 @@ html, body {
 .container {
     max-width: 1200px;
     padding: 1.5rem;
+    padding-bottom: 0;
     margin: 0 auto;
 }
 

@@ -295,69 +295,23 @@ async function getMovieEmbedUrl(mediaId, provider, apiKey, language = null) {
         }
     }    
 
-const loadingMessages = [
-    { message: "Contacting server...", icon: "<i class='fas fa-satellite'></i>" },
-    { message: "Fetching data...", icon: "<i class='fas fa-download'></i>" },
-    { message: "URL received...", icon: "<i class='fas fa-link'></i>" },
-    { message: "Parsing data...", icon: "<i class='fas fa-search'></i>" },
-    { message: "Streaming in 4K HDR...", icon: "<i class='fas fa-tv'></i>" },
-    { message: "Almost ready...", icon: "<i class='fas fa-hourglass-half'></i>" }
-];
 
 function showLoadingScreen(time) {
-    const loadingScreen = document.getElementById('loadingScreen');
-    const progressBar = document.getElementById('progressBar');
-    const loadingMessage = document.getElementById('loadingMessage');
-    const timeFinal = time || 2500;
-
-    let currentProgress = 0;
-    loadingScreen.classList.remove('hidden');
-
-    const interval = setInterval(() => {
-        if (currentProgress >= 100) {
-            clearInterval(interval);
-            loadingScreen.classList.add('hidden');
-        } else {
-            currentProgress += Math.floor(Math.random() * 15) + 5;
-            progressBar.style.width = `${currentProgress}%`;
-            const messageIndex = Math.min(Math.floor(currentProgress / 20), loadingMessages.length - 1);
-            loadingMessage.innerHTML = `${loadingMessages[messageIndex].icon} ${loadingMessages[messageIndex].message}`;
-        }
-    }, timeFinal);
+    return;
 }
 
 function hideLoadingScreen() {
-    const loadingScreen = document.getElementById("loadingScreen");
-    loadingScreen.classList.add("hidden");
+    return;
 }
 
 function enableOrientationLock() {
-    const element = document.documentElement;
-    if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock('landscape').catch(err => {
-            console.warn('Orientation lock failed:', err);
-        });
-    }
-    if (element.requestFullscreen) {
-        element.requestFullscreen().catch(err => {
-            console.warn('Fullscreen request failed:', err);
-        });
-    }
+    return;
 }
 
 function disableOrientationLock() {
-    if (screen.orientation && screen.orientation.unlock) {
-        screen.orientation.unlock().catch(err => {
-            console.warn('Orientation unlock failed:', err);
-        });
-    }
-    if (document.exitFullscreen) {
-        document.exitFullscreen().catch(err => {
-            console.warn('Exiting fullscreen failed:', err);
-        });
-    }
+    return;
 }
-
+/*
 document.addEventListener('DOMContentLoaded', () => {
     const orientationLockToggle = document.getElementById('orientationLockToggle');
     const orientationLockEnabled = JSON.parse(localStorage.getItem('orientationLock')) || false;
@@ -378,22 +332,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
+*/
 function attemptFullscreenAndLockOrientation(element) {
-    const orientationLockEnabled = JSON.parse(localStorage.getItem('orientationLock')) || false;
-    if (!element || !orientationLockEnabled) return;
-
-    if (element.requestFullscreen) {
-        element.requestFullscreen().catch(err => {
-            console.warn('Fullscreen request failed:', err);
-        });
-    }
-
-    if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock('landscape').catch(err => {
-            console.warn('Orientation lock failed:', err);
-        });
-    }
+    return;
 }
 
 async function fetchMediaData(mediaId, mediaType, apiKey) {
